@@ -104,23 +104,26 @@ watch.createMonitor('./uploads/pipeDelimited/new_templates', (monitor) => {
                                             records.splice[rec];
                                         }
                                         else {
-                                            let dataRecord = records[rec];
-                                            var abc = 0;        
-                                            for(var key of Object.keys(data[0])){
-                                                dataObject [key] = dataRecord[abc];
-                                                abc++;
-                                            }
-                                            
-                                            var modelInstance = new templateModel(dataObject);
-                                            modelInstance.save((err)=>{
-                                                if(err){
-                                                    console.log(err)
+                                            if(data[0] == null || data[0] == undefined) {
+                                                data.splice();
+                                            } else {
+                                                let dataRecord = records[rec];
+                                                var abc = 0;        
+                                                for(var key of Object.keys(data[0])){
+                                                    dataObject [key] = dataRecord[abc];
+                                                    abc++;
                                                 }
-                                                else {
-                                                    console.log("Data inserted !!!!!")
-                                                }
-                                            })        
-
+                                                
+                                                var modelInstance = new templateModel(dataObject);
+                                                modelInstance.save((err)=>{
+                                                    if(err){
+                                                        console.log(err)
+                                                    }
+                                                    else {
+                                                        console.log("Data inserted !!!!!")
+                                                    }
+                                                })
+                                            }        
                                         }
                                     }
 

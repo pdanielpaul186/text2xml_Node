@@ -48,6 +48,13 @@ app.use(function (req, res, next) {
 
 app.use('/templates',templateRouter);
 app.use('/models',modelRouter);
+app.use("/",(req,res)=>{
+  res.send({
+    status : 200,
+    message : "Success",
+    data : "Welcome to Text to XML Conversion tool API's"
+  })
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -64,5 +71,14 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen("4300",(err)=>{
+  if(err){
+    console.log("Error in opening application")
+    console.log(err);
+  } else {
+    console.log("application started on port : 4300")
+  }
+})
 
 module.exports = app;

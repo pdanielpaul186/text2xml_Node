@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const url = 'mongodb+srv://admin:admin@cluster0.laiqm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' //can be changed if it has any other connections
+const url = 'mongodb+srv://admin:text2xml@cluster0.gqqyt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' //can be changed if it has any other connections
 
 const req = {
     useNewUrlParser: true,
